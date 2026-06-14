@@ -2,8 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches: ["main"] 
+  workflow_dispatch:   
 
 permissions:
   contents: read
@@ -42,7 +42,7 @@ jobs:
       - name: Fazer o upload dos arquivos (Pasta DIST)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # MÁGICA AQUI: O Vite joga o site pronto na pasta dist
+          path: './dist' 
 
       - name: Publicar no GitHub Pages
         id: deployment
