@@ -14,7 +14,7 @@ export default function App(){
             rel="noopener noreferrer"
             className="github-link">
             GitHub</a>
-            <a  href={`${import.meta.env.BASE_URL}resumeport.pdf`}
+            <a  href="/portfolio/resumeport.pdf"
                 download="Resume_Eduarda_Caminski.pdf" 
                 className="download">
                 Download Resume(PDF)</a>
