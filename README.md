@@ -1,75 +1,32 @@
-# React + TypeScript + Vite
+# Personal Portfolio Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A static web application focused on project consolidation, deployment pipeline automation, and responsive component rendering.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Developed in TypeScript, this portfolio centralizes academic and professional repositories, utilizing a modular component architecture and a custom themed design (Sakura) to display structural data and badges cleanly.
 
-## React Compiler
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Technologies and Concepts Used
 
-Note: This will impact Vite dev & build performances.
+* **Language:** TypeScript, CSS
+* **Tools:** Vite, VS Code, GitHub Actions
+* **Concepts:** Relative path routing, static asset management, continuous integration (CI/CD), and declarative styling.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Implementation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* **Automation Pipeline:** Configured GitHub Actions workflows to automatically compile production assets through Vite and publish them directly to GitHub Pages.
+* **Path Resolution:** Implemented relative path strategies within the `public` directory to guarantee the structural integrity of static file downloads (such as the resume PDF) regardless of repository domain subfolders.
+* **Modular Design:** Structured reusable components for project sections, skills, and contact forms, optimized for runtime efficiency and layout responsiveness.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## How It Works
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application manages resource loading and the visual layout through base paths and optimized bundling:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* **Asset Encapsulation:** The Vite ecosystem maps files from the `public` folder directly into the build root, allowing direct access via clean relative paths:
+  ```tsx
+  <a href="resumeport.pdf" download="Resume_Eduarda_Caminski.pdf" className="download">
+    Download Resume
+  </a>
